@@ -5,12 +5,13 @@ from phonemizer import phonemize
 from phonemizer.backend.espeak.wrapper import EspeakWrapper
 
 
-# Windows espeak
-_espeak_library = r"C:\Program Files\eSpeak NG\libespeak-ng.dll"
-EspeakWrapper.set_library(_espeak_library)
+# Note: Windows espeak path (adjust according to your OS or install location)
+_espeak_library = os.environ.get("ESPEAK_LIBRARY", r"C:\Program Files\eSpeak NG\libespeak-ng.dll")
+if os.path.exists(_espeak_library):
+    EspeakWrapper.set_library(_espeak_library)
 
 
-DATA_PATH = r"D:\TTS\LJSpeech-1.1"
+DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "LJSpeech-1.1")
 WAV_PATH = os.path.join(DATA_PATH, "wavs")
 META_PATH = os.path.join(DATA_PATH, "metadata.csv")
 

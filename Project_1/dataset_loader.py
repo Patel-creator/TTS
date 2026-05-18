@@ -3,7 +3,7 @@ import librosa
 import pandas as pd
 
 
-DATA_PATH = r"D:\TTS\LJSpeech-1.1"
+DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "LJSpeech-1.1")
 WAV_PATH = os.path.join(DATA_PATH, "wavs")
 META_PATH = os.path.join(DATA_PATH, "metadata.csv")
 
