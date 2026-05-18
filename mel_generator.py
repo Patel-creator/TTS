@@ -3,7 +3,7 @@ import librosa.display
 import matplotlib.pyplot as plt
 import os
 
-wav_path = r"Voice_cloning_TTS/clone_speecht5.wav"
+wav_path = os.path.join(os.path.dirname(__file__), "Voice_cloning_TTS", "clone_speecht5.wav")
 
 audio, sr = librosa.load(wav_path, sr=22050)
 

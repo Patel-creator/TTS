@@ -4,12 +4,15 @@ from phonemizer import phonemize
 from phonemizer.backend.espeak.wrapper import EspeakWrapper
 
 
+import os
+
 # -------------------------
 # Windows espeak path
 # -------------------------
 
-_espeak_library = r"C:\Program Files\eSpeak NG\libespeak-ng.dll"
-EspeakWrapper.set_library(_espeak_library)
+_espeak_library = os.environ.get("ESPEAK_LIBRARY", r"C:\Program Files\eSpeak NG\libespeak-ng.dll")
+if os.path.exists(_espeak_library):
+    EspeakWrapper.set_library(_espeak_library)
 
 
 # -------------------------

@@ -37,14 +37,15 @@ from transformers import SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5Hif
 
 
 # ========== Step 1: Extract speaker embedding from reference voice ==========
+import os
 print("Loading speaker encoder (x-vector)...")
 speaker_encoder = EncoderClassifier.from_hparams(
     source="speechbrain/spkrec-xvect-voxceleb",
-    savedir="pretrained_models/spkrec-xvect",
+    savedir=os.path.join(os.path.dirname(__file__), "pretrained_models", "spkrec-xvect"),
     local_strategy=LocalStrategy.COPY,
 )
 
-REF_WAV = "../LJSpeech-1.1/wavs/LJ001-0001.wav"
+REF_WAV = os.path.join(os.path.dirname(os.path.dirname(__file__)), "LJSpeech-1.1", "wavs", "LJ001-0001.wav")
 print(f"Extracting speaker embedding from: {REF_WAV}")
 
 # Load audio and resample to 16 kHz (what the x-vector model expects)

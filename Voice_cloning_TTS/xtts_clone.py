@@ -16,9 +16,10 @@ tts = TTS(
     model_name="tts_models/multilingual/multi-dataset/xtts_v2"
 )
 
+import os
 tts.tts_to_file(
     text="This is my voice cloning project",
-    speaker_wav="../LJSpeech-1.1/wavs/LJ001-0001.wav",
+    speaker_wav=os.path.join(os.path.dirname(os.path.dirname(__file__)), "LJSpeech-1.1", "wavs", "LJ001-0001.wav"),
     language="en",
     file_path="clone.wav"
 )
