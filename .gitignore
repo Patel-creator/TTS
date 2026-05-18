@@ -1,0 +1,27 @@
+# Environments
+tts_env/
+venv/
+env/
+
+# Datasets
+LJSpeech-1.1/
+wavs/
+
+# Models
+pretrained_models/
+
+# Cache
+__pycache__/
+.ipynb_checkpoints/
+
+# Output and large media files
+*.wav
+*.png
+*.mp3
+
+# Jupyter
+.jupyter_cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
